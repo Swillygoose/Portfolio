@@ -85,7 +85,7 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
 
   const handleProjectClick = (projectId: string) => {
     if (onNavigate) {
-      onNavigate("Portfolio");
+      onNavigate(`project-${projectId}`);
     }
   };
 
@@ -356,13 +356,8 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
                   const relatedProjects = getProjectsForSkill(skill.name);
                   
                   return (
-                    <motion.div
+                    <div
                       key={i}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: i * 0.05 }}
-                      layout
                       className={`group relative bg-white/40 backdrop-blur-md rounded-2xl p-5 border border-white/60 hover:border-white/80 transition-all cursor-pointer overflow-hidden shadow-lg hover:shadow-xl ${
                         isExpanded ? 'md:col-span-2 lg:col-span-3' : ''
                       }`}
@@ -425,7 +420,7 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
                           )}
                         </AnimatePresence>
                       </div>
-                    </motion.div>
+                    </div>
                   );
                 })}
               </div>
@@ -448,22 +443,13 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
               <div className="flex flex-wrap gap-3">
                 {[
                   { name: "Figma", color: "from-[#CD2C58] to-[#E06B80]" },
-                  { name: "Adobe XD", color: "from-[#9D84B7] to-[#CD2C58]" },
-                  { name: "Sketch", color: "from-[#E06B80] to-[#FFC69D]" },
+                  { name: "Adobe", color: "from-[#9D84B7] to-[#CD2C58]" },
                   { name: "Photoshop", color: "from-[#FFC69D] to-[#E06B80]" },
                   { name: "Illustrator", color: "from-[#7B68A6] to-[#9D84B7]" },
-                  { name: "Principle", color: "from-[#CD2C58] to-[#9D84B7]" },
-                  { name: "InVision", color: "from-[#E06B80] to-[#CD2C58]" },
                   { name: "Miro", color: "from-[#9D84B7] to-[#E06B80]" },
-                  { name: "After Effects", color: "from-[#FFC69D] to-[#CD2C58]" },
-                  { name: "Framer", color: "from-[#7B68A6] to-[#CD2C58]" },
                 ].map((tool, i) => (
                   <motion.div
                     key={i}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: i * 0.03 }}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -504,13 +490,8 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
                   const relatedProjects = getProjectsForSkill(skill.name);
                   
                   return (
-                    <motion.div
+                    <div
                       key={i}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: i * 0.05 }}
-                      layout
                       className={`group relative bg-white/40 backdrop-blur-md rounded-2xl p-5 border border-white/60 hover:border-white/80 transition-all cursor-pointer overflow-hidden shadow-lg hover:shadow-xl ${
                         isExpanded ? 'md:col-span-2 lg:col-span-3' : ''
                       }`}
@@ -573,7 +554,7 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
                           )}
                         </AnimatePresence>
                       </div>
-                    </motion.div>
+                    </div>
                   );
                 })}
               </div>

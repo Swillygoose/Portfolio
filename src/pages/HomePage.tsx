@@ -10,6 +10,7 @@ const featuredProjects = [
     image: "https://images.unsplash.com/photo-1618761714954-0b8cd0026356?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXNpZ24lMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzYxMDIxNjAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
     tags: ["Mobile Design", "UX Research", "Figma"],
     gradient: "from-[#CD2C58]/80 to-[#E06B80]/80",
+    projectId: "project-healthtrack",
   },
   {
     title: "E-Commerce Dashboard",
@@ -17,6 +18,7 @@ const featuredProjects = [
     image: "https://images.unsplash.com/photo-1575388902449-6bca946ad549?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1aSUyMGRlc2lnbiUyMGRhc2hib2FyZHxlbnwxfHx8fDE3NjExNDQyNjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
     tags: ["Web Design", "Dashboard", "Design System"],
     gradient: "from-[#9D84B7]/80 to-[#CD2C58]/80",
+    projectId: "project-ecommerce",
   },
   {
     title: "BrandFlow Design System",
@@ -24,10 +26,15 @@ const featuredProjects = [
     image: "https://images.unsplash.com/photo-1610989001873-03968eed0f08?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWJzaXRlJTIwZGVzaWduJTIwbW9ja3VwfGVufDF8fHx8MTc2MTEzMzU0Mnww&ixlib=rb-4.1.0&q=80&w=1080",
     tags: ["Design System", "Branding", "Documentation"],
     gradient: "from-[#E06B80]/80 to-[#FFC69D]/80",
+    projectId: "project-brandflow",
   },
 ];
 
-export function HomePage() {
+interface HomePageProps {
+  onNavigate?: (page: string) => void;
+}
+
+export function HomePage({ onNavigate }: HomePageProps) {
   return (
     <div className="relative bg-gradient-to-br from-[#FFE6D4] via-[#FFC69D]/40 to-[#FFE6D4] overflow-hidden">
       {/* One continuous animated background with blobs */}
@@ -104,46 +111,27 @@ export function HomePage() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <motion.div 
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
               {featuredProjects.map((project, index) => (
-                <motion.div
+                <ProjectCard
                   key={index}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="group relative bg-white/40 backdrop-blur-md rounded-2xl overflow-hidden border border-white/60 hover:border-white/80 transition-all shadow-lg hover:shadow-xl cursor-pointer"
-                >
-                  {/* Project Image */}
-                  <div className="relative h-64 overflow-hidden">
-                    <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10`} />
-                    <img 
-                      src={project.image} 
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-
-                  {/* Project Info */}
-                  <div className="p-6">
-                    <h3 className="mb-3 text-[#4A4E69]">{project.title}</h3>
-                    <p className="text-sm text-[#6B6B8D] leading-relaxed mb-4">
-                      {project.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag, i) => (
-                        <span 
-                          key={i}
-                          className="text-xs px-3 py-1 rounded-full bg-white/60 backdrop-blur-sm text-[#CD2C58] border border-white/40"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
+                  title={project.title}
+                  description={project.description}
+                  image={project.image}
+                  tags={project.tags}
+                  gradient={project.gradient}
+                  index={index}
+                  projectId={project.projectId}
+                  onNavigate={onNavigate}
+                />
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 

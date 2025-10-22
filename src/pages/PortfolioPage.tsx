@@ -19,6 +19,7 @@ const allProjects = [
     tags: ["Web Design", "Dashboard", "Design System"],
     gradient: "from-[#9D84B7]/80 to-[#CD2C58]/80",
     category: "web",
+    projectId: "project-ecommerce",
   },
   {
     title: "BrandFlow Design System",
@@ -27,6 +28,7 @@ const allProjects = [
     tags: ["Design System", "Branding", "Documentation"],
     gradient: "from-[#E06B80]/80 to-[#FFC69D]/80",
     category: "branding",
+    projectId: "project-brandflow",
   },
   {
     title: "FoodShare Social App",
@@ -35,6 +37,7 @@ const allProjects = [
     tags: ["Mobile App", "Social Media", "UX/UI"],
     gradient: "from-[#FFC69D]/80 to-[#E06B80]/80",
     category: "mobile",
+    projectId: "project-foodshare",
   },
   {
     title: "TechStart Branding",
@@ -43,6 +46,7 @@ const allProjects = [
     tags: ["Branding", "Identity", "Logo Design"],
     gradient: "from-[#9D84B7]/80 to-[#E06B80]/80",
     category: "branding",
+    projectId: "project-techstart",
   },
   {
     title: "Portfolio Website Redesign",
@@ -51,6 +55,7 @@ const allProjects = [
     tags: ["Web Design", "Portfolio", "Responsive"],
     gradient: "from-[#CD2C58]/80 to-[#9D84B7]/80",
     category: "web",
+    projectId: "project-portfolio",
   },
 ];
 
@@ -190,18 +195,15 @@ export function PortfolioPage({ onNavigate }: PortfolioPageProps) {
             <motion.div
               layout
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
             >
               {filteredProjects.map((project, index) => (
-                <motion.div
-                  key={project.title}
-                  layout
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5 }}
-                >
+                <div key={project.title}>
                   <ProjectCard {...project} index={index} onNavigate={onNavigate} />
-                </motion.div>
+                </div>
               ))}
             </motion.div>
           </div>

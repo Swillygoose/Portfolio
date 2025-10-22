@@ -22,11 +22,7 @@ export function ProjectCard({ title, description, image, tags, gradient, index, 
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
+    <div
       onClick={handleClick}
       className={`group relative bg-white/60 backdrop-blur-xl rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-white/60 ${
         projectId && onNavigate ? "cursor-pointer" : ""
@@ -76,6 +72,6 @@ export function ProjectCard({ title, description, image, tags, gradient, index, 
           ))}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
