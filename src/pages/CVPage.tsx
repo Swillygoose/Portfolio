@@ -106,20 +106,26 @@ const awards = [
 
 export function CVPage() {
   const handleDownloadNorwegianCV = () => {
-    // Create a link element and trigger download
+    const norwegianCVUrl =
+      "https://www.dropbox.com/scl/fi/guynvka54dkm7jkul5okb/cv-norwegian.pdf?rlkey=ktr6akfncam18s71fgmg0988y&st=fkl5nsjn&dl=1";
+
     const link = document.createElement("a");
-    link.href = "/assets/cv-norwegian.pdf"; // Path to your Norwegian PDF
+    link.href = norwegianCVUrl;
     link.download = "Sandra_Wilmann_CV_Norwegian.pdf";
+    link.target = "_blank"; // Opens in new tab if download fails
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
   const handleDownloadEnglishCV = () => {
-    // Create a link element and trigger download
+    const englishCVUrl =
+      "https://www.dropbox.com/scl/fi/flmxtmuuypq0d8n75rsa1/cv-english.pdf?rlkey=j3befdiyh3c6mm909qpkrxzkj&st=qwq0xm2l&dl=1";
+
     const link = document.createElement("a");
-    link.href = "/assets/cv-english.pdf"; // Path to your English PDF
+    link.href = englishCVUrl;
     link.download = "Sandra_Wilmann_CV_English.pdf";
+    link.target = "_blank"; // Opens in new tab if download fails
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -521,55 +527,7 @@ export function CVPage() {
             </div>
           </div>
         </section>
-
-        {/* Awards Section */}
-        <section className="py-24 px-6">
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="flex items-center gap-3 mb-12"
-            >
-              <div className="p-3 rounded-xl bg-gradient-to-br from-[#FFC69D] to-[#E06B80] shadow-lg backdrop-blur-sm">
-                <Award className="w-6 h-6 text-white" />
-              </div>
-              <h2 className="text-[#4A4E69] font-bold">
-                Awards & Recognition
-              </h2>
-            </motion.div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {awards.map((award, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.6,
-                    delay: index * 0.1,
-                  }}
-                  className="bg-white/40 backdrop-blur-md rounded-2xl p-6 border border-white/60 shadow-lg hover:shadow-xl transition-all hover:bg-white/50"
-                >
-                  <div className="text-sm text-[#CD2C58] mb-2">
-                    {award.year}
-                  </div>
-                  <h3 className="text-[#4A4E69] mb-2">
-                    {award.title}
-                  </h3>
-                  <p className="text-sm text-[#6B6B8D] mb-1">
-                    {award.organization}
-                  </p>
-                  <p className="text-xs text-[#9D84B7]">
-                    For: {award.project}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+      
       </div>
     </div>
   );

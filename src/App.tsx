@@ -11,6 +11,7 @@ import { FoodShareProject } from "./pages/projects/FoodShareProject";
 import { TechStartProject } from "./pages/projects/TechStartProject";
 import { PortfolioWebsiteProject } from "./pages/projects/PortfolioWebsiteProject";
 import { useState } from "react";
+import { Toaster } from "sonner@2.0.3";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState("Home");
@@ -63,6 +64,9 @@ export default function App() {
           © 2025 Sandra Wilmann. Designed & built with passion
         </p>
       </footer>
+      
+      {/* Toast notifications */}
+      <Toaster position="bottom-right" richColors />
     </div>
   );
 }

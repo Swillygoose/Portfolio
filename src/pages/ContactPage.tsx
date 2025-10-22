@@ -5,12 +5,13 @@ import { Input } from "../components/ui/input";
 import { Textarea } from "../components/ui/textarea";
 import { Button } from "../components/ui/button";
 import { useState } from "react";
+import { projectId, publicAnonKey } from "../utils/supabase/info";
+import { toast } from "sonner@2.0.3";
 
 const socialLinks = [
-  { icon: Linkedin, href: "#", label: "LinkedIn", handle: "@sandrawilmann" },
-  { icon: Github, href: "#", label: "GitHub", handle: "@sandrawilmann" },
-  { icon: Twitter, href: "#", label: "Twitter", handle: "@sandrawilmann" },
-  { icon: Mail, href: "#", label: "Email", handle: "hello@sandrawilmann.design" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/swilmann/", label: "LinkedIn", handle: "@wilmann" },
+  { icon: Github, href: "https://github.com/Swillygoose", label: "GitHub", handle: "@swilmann" },
+  { icon: Mail, href: "#", label: "Email", handle: "sandra_wilmann@hotmail.com" },
 ];
 
 export function ContactPage() {
@@ -20,11 +21,47 @@ export function ContactPage() {
     subject: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(
+        `https://${projectId}.supabase.co/functions/v1/make-server-d1e26aad/contact`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${publicAnonKey}`,
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message");
+      }
+
+      // Success!
+      toast.success("Message sent successfully! I'll get back to you soon.");
+      
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast.error("Failed to send message. Please try again or email me directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -32,6 +69,26 @@ export function ContactPage() {
       ...formData,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const handleCopyEmail = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    try {
+      await navigator.clipboard.writeText("sandra_wilmann@hotmail.com");
+      toast.success("Email copied to clipboard!");
+    } catch (error) {
+      toast.error("Failed to copy email");
+    }
+  };
+
+  const handleCopyPhone = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    try {
+      await navigator.clipboard.writeText("+4740300196");
+      toast.success("Phone number copied to clipboard!");
+    } catch (error) {
+      toast.error("Failed to copy phone number");
+    }
   };
 
   return (
@@ -207,10 +264,11 @@ export function ContactPage() {
 
                   <Button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-[#CD2C58] to-[#E06B80] hover:shadow-lg transition-shadow"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-[#CD2C58] to-[#E06B80] hover:shadow-lg transition-shadow disabled:opacity-50"
                   >
                     <Send className="w-4 h-4 mr-2" />
-                    Send Message
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </motion.div>
@@ -234,20 +292,20 @@ export function ContactPage() {
                       <div>
                         <p className="text-sm text-[#6B6B8D]">Email</p>
                         <a href="mailto:hello@alexrivera.design" className="text-[#4A4E69] hover:text-[#CD2C58]">
-                          hello@sandrawilmann.design
+                          sandra_wilmann@hotmail.com
                         </a>
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-4">
+                    <div className="flex items-start gap-4 cursor-pointer" onClick={handleCopyPhone}>
                       <div className="p-3 rounded-xl bg-gradient-to-br from-[#9D84B7] to-[#7B68A6] shadow-lg">
                         <Phone className="w-5 h-5 text-white" />
                       </div>
                       <div>
                         <p className="text-sm text-[#6B6B8D]">Phone</p>
-                        <a href="tel:+33066445565" className="text-[#4A4E69] hover:text-[#CD2C58]">
-                          +33 06 66 44 55 65
-                        </a>
+                        <p className="text-[#4A4E69] hover:text-[#CD2C58]">
+                          +47 40 30 01 96
+                        </p>
                       </div>
                     </div>
 
@@ -257,7 +315,7 @@ export function ContactPage() {
                       </div>
                       <div>
                         <p className="text-sm text-[#6B6B8D]">Location</p>
-                        <p className="text-[#4A4E69]">Melbourne, France</p>
+                        <p className="text-[#4A4E69]">Oslo, Norway</p>
                       </div>
                     </div>
                   </div>
@@ -268,12 +326,16 @@ export function ContactPage() {
                     <div className="space-y-3">
                       {socialLinks.map((social, index) => {
                         const Icon = social.icon;
+                        const isEmail = social.label === "Email";
                         return (
                           <motion.a
                             key={index}
                             href={social.href}
+                            onClick={isEmail ? handleCopyEmail : undefined}
+                            target={!isEmail ? "_blank" : undefined}
+                            rel={!isEmail ? "noopener noreferrer" : undefined}
                             whileHover={{ x: 4 }}
-                            className="flex items-center gap-4 p-3 rounded-xl bg-[#FFE6D4]/50 hover:bg-[#FFE6D4] transition-colors group"
+                            className="flex items-center gap-4 p-3 rounded-xl bg-[#FFE6D4]/50 hover:bg-[#FFE6D4] transition-colors group cursor-pointer"
                           >
                             <Icon className="w-5 h-5 text-[#CD2C58] group-hover:text-[#E06B80]" />
                             <div>
