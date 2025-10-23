@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import capLogo from "figma:asset/b8cfe82db9713cdd5261f4be9d3894428ec0de2a.png";
+import capLogo from "figma:asset/ed943022b412a354c3837954d86b2bc048a30058.png";
 
 interface HeaderProps {
   currentPage: string;
