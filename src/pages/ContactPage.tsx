@@ -9,8 +9,8 @@ import { projectId, publicAnonKey } from "../utils/supabase/info";
 import { toast } from "sonner@2.0.3";
 
 const socialLinks = [
-  { icon: Linkedin, href: "https://www.linkedin.com/in/swilmann/", label: "LinkedIn", handle: "@wilmann" },
-  { icon: Github, href: "https://github.com/Swillygoose", label: "GitHub", handle: "@swilmann" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/swilmann/", label: "LinkedIn", handle: "@swilmann" },
+  { icon: Github, href: "https://github.com/Swillygoose", label: "GitHub", handle: "@swillygoose" },
   { icon: Mail, href: "#", label: "Email", handle: "sandra_wilmann@hotmail.com" },
 ];
 

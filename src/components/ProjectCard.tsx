@@ -12,9 +12,10 @@ interface ProjectCardProps {
   index: number;
   projectId?: string;
   onNavigate?: (page: string) => void;
+  icon?: React.ReactNode;
 }
 
-export function ProjectCard({ title, description, image, tags, gradient, index, projectId, onNavigate }: ProjectCardProps) {
+export function ProjectCard({ title, description, image, tags, gradient, index, projectId, onNavigate, icon }: ProjectCardProps) {
   const handleClick = () => {
     if (projectId && onNavigate) {
       onNavigate(projectId);
@@ -46,10 +47,11 @@ export function ProjectCard({ title, description, image, tags, gradient, index, 
         <div className={`absolute inset-0 bg-gradient-to-t ${gradient} opacity-0 group-hover:opacity-90 transition-opacity duration-300 flex items-center justify-center`}>
           <motion.div
             initial={{ scale: 0 }}
-            whileHover={{ scale: 1 }}
-            className="bg-white rounded-full p-4 shadow-lg"
+            animate={{ scale: 0 }}
+            whileInView={{ scale: 0 }}
+            className="bg-white rounded-full p-4 shadow-lg group-hover:scale-100 transition-transform duration-300"
           >
-            <ExternalLink className="w-6 h-6 text-[#CD2C58]" />
+            {icon || <ExternalLink className="w-6 h-6 text-[#CD2C58]" />}
           </motion.div>
         </div>
       </div>

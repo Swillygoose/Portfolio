@@ -5,28 +5,28 @@ import { motion } from "motion/react";
 
 const featuredProjects = [
   {
-    title: "HealthTrack Mobile App",
-    description: "A comprehensive health and fitness tracking app with intuitive UI and personalized workout plans.",
-    image: "https://images.unsplash.com/photo-1618761714954-0b8cd0026356?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXNpZ24lMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzYxMDIxNjAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["Mobile Design", "UX Research", "Figma"],
-    gradient: "from-[#CD2C58]/80 to-[#E06B80]/80",
-    projectId: "project-healthtrack",
+    title: "MESHR",
+    description: "Redesigning a web application to make European Court of Human Rights case law more accessible for law students and legal professionals.",
+    image: "https://www.dropbox.com/scl/fi/k1h73iey4ni55t9vcj9ni/dashboard.jpg?rlkey=uo4zkna2dkmvqlt7xq5k7ikrc&st=gkvngv02&raw=1",
+    tags: ["Web App Design", "UX Research", "Data Visualization"],
+    gradient: "from-[#726AE9]/80 to-[#B794F4]/80",
+    projectId: "project-meshr",
   },
   {
-    title: "E-Commerce Dashboard",
-    description: "A modern admin dashboard for managing online stores with real-time analytics and inventory control.",
-    image: "https://images.unsplash.com/photo-1575388902449-6bca946ad549?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1aSUyMGRlc2lnbiUyMGRhc2hib2FyZHxlbnwxfHx8fDE3NjExNDQyNjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["Web Design", "Dashboard", "Design System"],
+    title: "SOLVEIG",
+    description: "A solar panel mobile app using Norwegian weather data and Google APIs to calculate savings and optimize panel placement.",
+    image: "https://www.dropbox.com/scl/fi/sxvxde0h4empdd4dknj5b/sol9.png?rlkey=dlfwmnbdzhw1r3fcth97tdt2a&st=wzkyrncf&raw=1",
+    tags: ["Mobile App Development", "Kotlin", "API Integration"],
+    gradient: "from-[#FFA726]/80 to-[#FFB74D]/80",
+    projectId: "project-solveig",
+  },
+  {
+    title: "Trotter App Design",
+    description: "A mobile app concept to inspire people to discover new places and events. Solo project showcasing branding and full product design.",
+    image: "https://www.dropbox.com/scl/fi/nt4a5yxtl505k0b878899/fel1.png?rlkey=iccrg3yxqeut46ud0qpe3nuhz&st=b9w8gwfg&raw=1",
+    tags: ["Mobile App Design", "Branding", "Figma"],
     gradient: "from-[#9D84B7]/80 to-[#CD2C58]/80",
-    projectId: "project-ecommerce",
-  },
-  {
-    title: "BrandFlow Design System",
-    description: "A complete design system with reusable components, documentation, and brand guidelines.",
-    image: "https://images.unsplash.com/photo-1610989001873-03968eed0f08?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWJzaXRlJTIwZGVzaWduJTIwbW9ja3VwfGVufDF8fHx8MTc2MTEzMzU0Mnww&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["Design System", "Branding", "Documentation"],
-    gradient: "from-[#E06B80]/80 to-[#FFC69D]/80",
-    projectId: "project-brandflow",
+    projectId: "project-trotter",
   },
 ];
 

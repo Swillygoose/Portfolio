@@ -1,4 +1,6 @@
 import { ProjectPage } from "../ProjectPage";
+import { motion } from "motion/react";
+import { ImageWithFallback } from "../../components/figma/ImageWithFallback";
 
 interface PortfolioWebsiteProjectProps {
   onNavigate: (page: string) => void;
@@ -8,61 +10,149 @@ export function PortfolioWebsiteProject({ onNavigate }: PortfolioWebsiteProjectP
   return (
     <ProjectPage
       onNavigate={onNavigate}
-      title="Portfolio Website Redesign"
-      description="A stunning portfolio website redesign for a creative agency showcasing their work through immersive interactions"
-      heroImage="https://images.unsplash.com/photo-1656264142377-22ae3fefdbc3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb3J0Zm9saW8lMjB3ZWJzaXRlJTIwbW9ja3VwfGVufDF8fHx8MTc2MTEyOTc3Mnww&ixlib=rb-4.1.0&q=80&w=1080"
-      client="Creative Collective Agency"
-      duration="4 months"
-      role="Lead UX/UI Designer"
-      tags={["Web Design", "Animation", "Prototyping", "Interaction Design"]}
+      title="Portfolio Website - Sandra Wilmann"
+      description="A modern, responsive portfolio website showcasing UX/UI design projects with glassmorphism aesthetics and seamless user experience."
+      heroContent={
+        <div className="space-y-6">
+          {/* Two landscape images side by side */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="relative rounded-2xl overflow-hidden shadow-xl aspect-[16/9]"
+            >
+              <ImageWithFallback
+                src="https://www.dropbox.com/scl/fi/8slp86wwa6rvcbyph4a5w/port1.png?rlkey=p5yep5l0idomnngt0nogvpzo4&st=qby5nejn&raw=1"
+                alt="Portfolio homepage design"
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative rounded-2xl overflow-hidden shadow-xl aspect-[16/9]"
+            >
+              <ImageWithFallback
+                src="https://www.dropbox.com/scl/fi/h58639waf4q6uajrekcq1/port2.png?rlkey=nsco2x7mjplcpid3a2zbg52s6&st=4lu2gp04&raw=1"
+                alt="Portfolio project pages"
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          </div>
+
+          {/* One large landscape image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="relative rounded-2xl overflow-hidden shadow-xl aspect-[16/9]"
+          >
+            <ImageWithFallback
+              src="https://www.dropbox.com/scl/fi/o96z6yei73wyn4u8tk6eh/port3.png?rlkey=18oor8xia82snjfoy0pd436ne&st=gc1m5o7d&raw=1"
+              alt="Portfolio full design showcase"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+        </div>
+      }
+      client="Personal Project"
+      duration="2 weeks"
+      role="UX/UI Designer, Developer"
+      tags={[
+        "Web Design",
+        "React",
+        "Figma",
+        "Glassmorphism",
+        "Responsive Design",
+        "Frontend Development",
+      ]}
       gradient="from-[#CD2C58]/80 to-[#9D84B7]/80"
-      challenge="Creative Collective's existing portfolio site failed to reflect the quality and innovation of their work. The static, template-based design didn't capture attention, had poor mobile experience, and wasn't converting visitors into leads. In a competitive creative industry, they needed a portfolio that would not only showcase their projects beautifully but also demonstrate their design capabilities through the website itself."
-      solution="I designed an immersive, scroll-driven portfolio experience that treats the website as a piece of art in itself. Each project is revealed through smooth animations and transitions that guide users through the agency's work. The design uses bold typography, dynamic layouts, and subtle parallax effects to create depth. Interactive case study pages let visitors explore projects in detail, while a streamlined contact flow makes it easy for potential clients to reach out."
-      myRole="As Lead UX/UI Designer, I owned the complete redesign from initial concept to final launch. My responsibilities included conducting competitive analysis and user research, creating the site architecture and user flows, designing all pages and interactions in high fidelity, building interactive prototypes to demonstrate complex animations, conducting usability testing with target users, and collaborating with developers to ensure smooth implementation of all interactive elements."
+      iconColors={{
+        primary: "text-[#CD2C58]",
+        secondary: "text-[#E06B80]",
+        tertiary: "text-[#9D84B7]",
+      }}
+      textColors={{
+        titleGradient: "from-[#CD2C58] to-[#9D84B7]",
+        badgeGradient: "from-[#CD2C58] to-[#9D84B7]",
+        buttonGradient: "from-[#CD2C58] to-[#9D84B7]",
+        buttonHoverGradient: "from-[#B02448] to-[#8A6F9B]",
+        processNumberGradient: "from-[#CD2C58] to-[#9D84B7]",
+        bulletGradient: "from-[#CD2C58] to-[#9D84B7]",
+      }}
+      challenge="As a UX/UI designer, I needed a portfolio website that would not only showcase my projects effectively but also demonstrate my design capabilities through the portfolio itself. The challenge was to create a clean, modern, and user-friendly website that reflects my design aesthetic while ensuring optimal performance and accessibility. The portfolio needed to stand out visually while maintaining professionalism, be fully responsive across all devices, and provide an intuitive navigation experience that allows potential clients and employers to easily explore my work."
+      solution="I designed and developed a modern portfolio website featuring a distinctive glassmorphism aesthetic with animated gradient backgrounds, creating a sleek and contemporary visual identity. The site uses a soft color palette of pinks, purples, and peach tones that creates a welcoming yet professional atmosphere. Built with React and Tailwind CSS, the portfolio includes five main sections: Home (featuring key projects), About (showcasing my experience and skills), Portfolio (comprehensive project gallery with filtering), CV (downloadable resume in multiple languages), and Contact (with functional form and social media integration). Each project has its own dedicated page with detailed case studies, custom color theming, and rich media content. The design emphasizes smooth animations, frosted glass cards, and thoughtful micro-interactions that enhance the user experience."
+      myRole="As the sole designer and developer of this project, I was responsible for the entire design and development process. I created the visual design in Figma, establishing the color palette, typography system, and component library. I designed the information architecture and user flows to ensure intuitive navigation. I then built the website using React, implementing responsive layouts with Tailwind CSS, creating reusable components, and integrating animations using Motion (Framer Motion). I also set up the backend infrastructure using Supabase for the contact form functionality and implemented email notifications through Resend API. Throughout the process, I made design decisions that balanced aesthetics with usability and performance."
       process={[
         {
           phase: "Research & Strategy",
-          description: "Analyzed 20+ award-winning agency portfolios. Conducted interviews with 10 potential clients to understand what influences their agency selection. Reviewed analytics from existing site to identify drop-off points. Defined success metrics and user goals.",
+          description:
+            "Analyzed successful portfolio websites in the UX/UI design industry to identify best practices and trends. Defined the core objectives: showcase projects effectively, demonstrate design skills, establish personal brand, and convert visitors into potential clients or employers. Created a content inventory of all projects, experience, and skills to be featured. Established key user journeys for different visitor types (recruiters, potential clients, fellow designers).",
         },
         {
-          phase: "Concept & Wireframing",
-          description: "Explored multiple concepts for presenting project work. Created low-fidelity wireframes for key pages and user flows. Tested different navigation patterns and project browsing experiences. Developed a modular content system that could accommodate various project types.",
+          phase: "Design System & Prototyping",
+          description:
+            "Designed the complete visual system in Figma, including color palette (pinks, purples, peach), typography hierarchy, glassmorphism effects, and animated gradient backgrounds. Created wireframes for all five main pages (Home, About, Portfolio, CV, Contact) and individual project pages. Designed the navigation system with clear visual hierarchy and smooth transitions. Established a component library including project cards, navigation header, frosted glass containers, buttons, and forms. Prototyped key interactions and animations to test the user flow before development.",
+          additionalImage: {
+            src: "https://www.dropbox.com/scl/fi/o96z6yei73wyn4u8tk6eh/port3.png?rlkey=18oor8xia82snjfoy0pd436ne&st=gc1m5o7d&raw=1",
+            alt: "Figma design system and components",
+            caption: "Design system and component library created in Figma",
+          },
         },
         {
-          phase: "Visual Design & Animation",
-          description: "Designed bold, modern visual style that stands out in the creative industry. Created custom animations and transitions for each interaction. Developed responsive layouts that work beautifully across all devices. Designed unique layouts for different project case studies.",
+          phase: "Development & Implementation",
+          description:
+            "Built the website using React with TypeScript for type safety and better developer experience. Implemented the design system using Tailwind CSS v4.0, creating a cohesive visual language across all pages. Developed reusable components including Header, ProjectCard, and ProjectPage with custom theming support. Integrated Motion for smooth animations and page transitions. Set up Supabase backend for contact form submissions and implemented Resend API for email notifications. Created individual project pages with custom color theming (purple for MESHR, orange for Trotter/SOLVEIG, purple for Toby's, green for Fritidsblomst). Implemented responsive design ensuring optimal viewing on mobile, tablet, and desktop devices.",
         },
         {
-          phase: "Prototyping & Testing",
-          description: "Built high-fidelity interactive prototypes with realistic animations. Conducted usability testing with 15 users including potential clients. Optimized animations for performance across devices. Refined interactions based on feedback and performance testing.",
+          phase: "Testing & Refinement",
+          description:
+            "Conducted cross-browser testing to ensure consistent appearance and functionality. Tested responsive behavior across multiple device sizes and orientations. Optimized performance by implementing lazy loading for images and efficient component rendering. Refined animations for smooth 60fps performance. Tested the contact form integration and email delivery. Made final adjustments to spacing, typography, and color contrast for accessibility. Prepared deployment and documented the codebase for future updates.",
         },
       ]}
       images={[
         {
-          url: "https://images.unsplash.com/photo-1656264142377-22ae3fefdbc3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb3J0Zm9saW8lMjB3ZWJzaXRlJTIwbW9ja3VwfGVufDF8fHx8MTc2MTEyOTc3Mnww&ixlib=rb-4.1.0&q=80&w=1080",
-          caption: "Homepage with dynamic hero and scroll animations",
+          component: (
+            <ImageWithFallback
+              src="https://www.dropbox.com/scl/fi/8slp86wwa6rvcbyph4a5w/port1.png?rlkey=p5yep5l0idomnngt0nogvpzo4&st=qby5nejn&raw=1"
+              alt="Homepage with featured projects"
+              className="w-full h-full object-cover"
+            />
+          ),
+          caption: "Clean homepage design with featured projects and glassmorphism effects",
         },
         {
-          url: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWJzaXRlJTIwZGVzaWdufGVufDF8fHx8MTc2MTE1NjA5N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-          caption: "Project grid with interactive hover states",
+          component: (
+            <ImageWithFallback
+              src="https://www.dropbox.com/scl/fi/h58639waf4q6uajrekcq1/port2.png?rlkey=nsco2x7mjplcpid3a2zbg52s6&st=4lu2gp04&raw=1"
+              alt="Project detail page"
+              className="w-full h-full object-cover"
+            />
+          ),
+          caption: "Detailed project pages with custom color theming",
         },
         {
-          url: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkZXNpZ24lMjBtb2NrdXB8ZW58MXx8fHwxNzYxMTU2MTE1fDA&ixlib=rb-4.1.0&q=80&w=1080",
-          caption: "Project case study page with rich media",
-        },
-        {
-          url: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZXNwb25zaXZlJTIwZGVzaWdufGVufDF8fHx8MTc2MTE1NjEzMXww&ixlib=rb-4.1.0&q=80&w=1080",
-          caption: "Mobile responsive design and interactions",
+          component: (
+            <ImageWithFallback
+              src="https://www.dropbox.com/scl/fi/o96z6yei73wyn4u8tk6eh/port3.png?rlkey=18oor8xia82snjfoy0pd436ne&st=gc1m5o7d&raw=1"
+              alt="Portfolio grid view"
+              className="w-full h-full object-cover"
+            />
+          ),
+          caption: "Portfolio page with category filtering and project grid",
         },
       ]}
       outcomes={[
-        "Site generated 250% more qualified leads in the first 3 months",
-        "Average session duration increased from 1.5 to 6.2 minutes",
-        "Bounce rate decreased by 58%, with visitors viewing 4+ pages on average",
-        "Client conversion rate improved by 85% compared to old site",
-        "Site won 'Best Agency Portfolio' at Awwwards and CSS Design Awards",
-        "Featured in 15+ design blogs and received 50,000+ social shares",
-        "Mobile traffic increased 120% with new responsive experience",
+        "Created a visually distinctive portfolio that showcases design skills through the website itself",
+        "Implemented a fully responsive design that works seamlessly across all devices",
+        "Developed a modular component system that allows easy addition of new projects",
+        "Integrated a functional contact form with backend infrastructure and email notifications",
+        "Achieved smooth 60fps animations and transitions throughout the site",
+        "Established a cohesive brand identity with consistent color palette and glassmorphism aesthetic",
+        "Built with modern web technologies (React, Tailwind CSS, TypeScript) demonstrating technical capabilities",
+        "Created comprehensive project case studies with rich media content and detailed process documentation",
       ]}
     />
   );

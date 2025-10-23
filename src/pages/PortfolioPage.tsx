@@ -1,61 +1,62 @@
 import { motion } from "motion/react";
 import { ProjectCard } from "../components/ProjectCard";
+import { TrotterIcon } from "../components/TrotterIcon";
 import { useState } from "react";
 
 const allProjects = [
   {
-    title: "HealthTrack Mobile App",
-    description: "A comprehensive health and fitness tracking app with intuitive UI and personalized workout plans.",
-    image: "https://images.unsplash.com/photo-1618761714954-0b8cd0026356?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXNpZ24lMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzYxMDIxNjAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["Mobile Design", "UX Research", "Figma"],
-    gradient: "from-[#CD2C58]/80 to-[#E06B80]/80",
-    category: "mobile",
-    projectId: "project-healthtrack",
+    title: "MESHR - Legal Research Platform",
+    description: "Redesigning a web application to make European Court of Human Rights case law more accessible for law students and professionals.",
+    image: "https://www.dropbox.com/scl/fi/k1h73iey4ni55t9vcj9ni/dashboard.jpg?rlkey=uo4zkna2dkmvqlt7xq5k7ikrc&st=gkvngv02&raw=1",
+    tags: ["Web App Design", "User Research", "Data Visualization"],
+    gradient: "from-[#726AE9]/80 to-[#B794F4]/80",
+    category: ["web"],
+    projectId: "project-meshr",
   },
   {
-    title: "E-Commerce Dashboard",
-    description: "A modern admin dashboard for managing online stores with real-time analytics and inventory control.",
-    image: "https://images.unsplash.com/photo-1575388902449-6bca946ad549?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1aSUyMGRlc2lnbiUyMGRhc2hib2FyZHxlbnwxfHx8fDE3NjExNDQyNjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["Web Design", "Dashboard", "Design System"],
-    gradient: "from-[#9D84B7]/80 to-[#CD2C58]/80",
-    category: "web",
-    projectId: "project-ecommerce",
-  },
-  {
-    title: "BrandFlow Design System",
-    description: "A complete design system with reusable components, documentation, and brand guidelines.",
-    image: "https://images.unsplash.com/photo-1610989001873-03968eed0f08?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWJzaXRlJTIwZGVzaWduJTIwbW9ja3VwfGVufDF8fHx8MTc2MTEzMzU0Mnww&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["Design System", "Branding", "Documentation"],
-    gradient: "from-[#E06B80]/80 to-[#FFC69D]/80",
-    category: "branding",
-    projectId: "project-brandflow",
-  },
-  {
-    title: "FoodShare Social App",
-    description: "A social platform for food lovers to share recipes and connect with other cooking enthusiasts.",
-    image: "https://images.unsplash.com/photo-1609921212029-bb5a28e60960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXNpZ258ZW58MXx8fHwxNzYxMTA3NDkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["Mobile App", "Social Media", "UX/UI"],
-    gradient: "from-[#FFC69D]/80 to-[#E06B80]/80",
-    category: "mobile",
-    projectId: "project-foodshare",
-  },
-  {
-    title: "TechStart Branding",
-    description: "Complete brand identity including logo, color palette, typography, and brand guidelines for a tech startup.",
-    image: "https://images.unsplash.com/photo-1548094990-c16ca90f1f0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmFuZGluZyUyMGRlc2lnbnxlbnwxfHx8fDE3NjExMzQwOTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["Branding", "Identity", "Logo Design"],
-    gradient: "from-[#9D84B7]/80 to-[#E06B80]/80",
-    category: "branding",
-    projectId: "project-techstart",
-  },
-  {
-    title: "Portfolio Website Redesign",
-    description: "Modern portfolio website for a photographer with focus on showcasing work and booking system.",
-    image: "https://images.unsplash.com/photo-1610989001873-03968eed0f08?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWJzaXRlJTIwZGVzaWduJTIwbW9ja3VwfGVufDF8fHx8MTc2MTEzMzU0Mnww&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: ["Web Design", "Portfolio", "Responsive"],
+    title: "Portfolio Website",
+    description: "A modern, responsive portfolio website with glassmorphism aesthetics, showcasing UX/UI projects with clean design and seamless navigation.",
+    image: "https://www.dropbox.com/scl/fi/8slp86wwa6rvcbyph4a5w/port1.png?rlkey=p5yep5l0idomnngt0nogvpzo4&st=qby5nejn&raw=1",
+    tags: ["Web Design", "React", "Figma"],
     gradient: "from-[#CD2C58]/80 to-[#9D84B7]/80",
-    category: "web",
-    projectId: "project-portfolio",
+    category: ["web"],
+    projectId: "project-portfolio-website",
+  },
+  {
+    title: "SOLVEIG - Solar Panel App",
+    description: "Mobile app using Norwegian weather data and Google APIs to calculate solar panel savings and optimize placement.",
+    image: "https://www.dropbox.com/scl/fi/sxvxde0h4empdd4dknj5b/sol9.png?rlkey=dlfwmnbdzhw1r3fcth97tdt2a&st=wzkyrncf&raw=1",
+    tags: ["Mobile App Development", "Kotlin", "Leadership"],
+    gradient: "from-[#FFA726]/80 to-[#FFB74D]/80",
+    category: ["mobile"],
+    projectId: "project-solveig",
+  },
+  {
+    title: "Trotter App Design",
+    description: "Creating an app to get people to new places. Explore new places and events near you. Solo concept project.",
+    image: "https://www.dropbox.com/scl/fi/nt4a5yxtl505k0b878899/fel1.png?rlkey=iccrg3yxqeut46ud0qpe3nuhz&st=b9w8gwfg&raw=1",
+    tags: ["Mobile App Design", "Branding", "Figma"],
+    gradient: "from-[#9D84B7]/80 to-[#CD2C58]/80",
+    category: ["mobile", "branding"],
+    projectId: "project-trotter",
+  },
+  {
+    title: "Toby's App Design",
+    description: "A playful burger ordering app with gamification, colorful branding, and delightful user experience.",
+    image: "https://www.dropbox.com/scl/fi/um8d0mhj38luwe1xktn7y/fel2.png?rlkey=mbldtgr0n92om5nieugq5z249&st=94na6wi9&raw=1",
+    tags: ["Mobile App Design", "Branding", "Figma"],
+    gradient: "from-[#7B5EA7]/80 to-[#B794F4]/80",
+    category: ["mobile", "branding"],
+    projectId: "project-tobys",
+  },
+  {
+    title: "Fritidsblomst - Free Time Reminder",
+    description: "An Arduino-powered interactive flower that reminds users to take time off. Built with volunteers who struggle with work-life balance.",
+    image: "https://www.dropbox.com/scl/fi/13rox7s4323lrxbu3tjxn/fri4.png?rlkey=sieozfyutgm73n043xsemuh1c&st=y8rigjc2&raw=1",
+    tags: ["Physical Computing", "Arduino", "User Research"],
+    gradient: "from-[#81C784]/80 to-[#A5D6A7]/80",
+    category: ["branding"],
+    projectId: "project-fritidsblomst",
   },
 ];
 
@@ -70,7 +71,7 @@ export function PortfolioPage({ onNavigate }: PortfolioPageProps) {
 
   const filteredProjects = selectedCategory === "All" 
     ? allProjects 
-    : allProjects.filter(project => project.category === selectedCategory.toLowerCase());
+    : allProjects.filter(project => project.category.includes(selectedCategory.toLowerCase()));
 
   return (
     <div className="pt-20 relative bg-gradient-to-br from-[#FFE6D4] via-[#FFC69D]/40 to-[#FFE6D4] overflow-hidden">
@@ -193,16 +194,21 @@ export function PortfolioPage({ onNavigate }: PortfolioPageProps) {
         <section className="py-24 px-6">
           <div className="max-w-7xl mx-auto">
             <motion.div
-              layout
+              key={selectedCategory}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
               initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
             >
               {filteredProjects.map((project, index) => (
                 <div key={project.title}>
-                  <ProjectCard {...project} index={index} onNavigate={onNavigate} />
+                  <ProjectCard 
+                    {...project} 
+                    index={index} 
+                    onNavigate={onNavigate}
+                    icon={project.projectId === "project-trotter" ? <TrotterIcon /> : undefined}
+                  />
                 </div>
               ))}
             </motion.div>
