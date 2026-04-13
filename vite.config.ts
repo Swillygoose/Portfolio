@@ -1,10 +1,23 @@
 
   import { defineConfig } from 'vite';
-  import react from '@vitejs/plugin-react-swc';
+  import react from '@vitejs/plugin-react';
+  import tailwindcss from '@tailwindcss/vite';
   import path from 'path';
 
+function figmaAssetResolver() {
+  return {
+    name: 'figma-asset-resolver',
+    resolveId(id) {
+      if (id.startsWith('figma:asset/')) {
+        const filename = id.replace('figma:asset/', '')
+        return path.resolve(__dirname, 'src/assets', filename)
+      }
+    },
+  }
+}
+
   export default defineConfig({
-    plugins: [react()],
+    plugins: [react(), tailwindcss(), figmaAssetResolver()],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
       alias: {
@@ -18,11 +31,6 @@
         'next-themes@0.4.6': 'next-themes',
         'lucide-react@0.487.0': 'lucide-react',
         'input-otp@1.4.2': 'input-otp',
-        'figma:asset/ed943022b412a354c3837954d86b2bc048a30058.png': path.resolve(__dirname, './src/assets/ed943022b412a354c3837954d86b2bc048a30058.png'),
-        'figma:asset/dd55ab4de0668caaa3555bf9acb3a7b23ce7ea43.png': path.resolve(__dirname, './src/assets/dd55ab4de0668caaa3555bf9acb3a7b23ce7ea43.png'),
-        'figma:asset/6613ac43773c1a0871d6484e71ba1e3af8238e9a.png': path.resolve(__dirname, './src/assets/6613ac43773c1a0871d6484e71ba1e3af8238e9a.png'),
-        'figma:asset/39390b387c3fa2b25b436f78a94c0d6766a082fe.png': path.resolve(__dirname, './src/assets/39390b387c3fa2b25b436f78a94c0d6766a082fe.png'),
-        'figma:asset/18c9b6906aade7ca2a821d9e11847684df67fc9a.png': path.resolve(__dirname, './src/assets/18c9b6906aade7ca2a821d9e11847684df67fc9a.png'),
         'embla-carousel-react@8.6.0': 'embla-carousel-react',
         'cmdk@1.1.1': 'cmdk',
         'class-variance-authority@0.7.1': 'class-variance-authority',

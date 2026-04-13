@@ -5,6 +5,7 @@ import { PortfolioPage } from "./pages/PortfolioPage";
 import { ContactPage } from "./pages/ContactPage";
 import { CVPage } from "./pages/CVPage";
 import { MESHRProject } from "./pages/projects/MESHRProject";
+import { UniversetProject } from "./pages/projects/UniversetProject";
 import { TrotterProject } from "./pages/projects/TrotterProject";
 import { TobysProject } from "./pages/projects/TobysProject";
 import { SolveigProject } from "./pages/projects/SolveigProject";
@@ -38,6 +39,8 @@ export default function App() {
         return <ContactPage />;
       case "project-meshr":
         return <MESHRProject onNavigate={handleNavigate} />;
+      case "project-universet":
+        return <UniversetProject onNavigate={handleNavigate} />;
       case "project-trotter":
         return <TrotterProject onNavigate={handleNavigate} />;
       case "project-tobys":

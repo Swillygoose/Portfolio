@@ -13,12 +13,12 @@ const featuredProjects = [
     projectId: "project-meshr",
   },
   {
-    title: "SOLVEIG",
-    description: "A solar panel mobile app using Norwegian weather data and Google APIs to calculate savings and optimize panel placement.",
-    image: "https://www.dropbox.com/scl/fi/sxvxde0h4empdd4dknj5b/sol9.png?rlkey=dlfwmnbdzhw1r3fcth97tdt2a&st=wzkyrncf&raw=1",
-    tags: ["Mobile App Development", "Kotlin", "API Integration"],
-    gradient: "from-[#FFA726]/80 to-[#FFB74D]/80",
-    projectId: "project-solveig",
+    title: "Universet",
+    description: "A digital learning platform integrating Confidence-Based Assessment to help students and instructors gain deeper insights into learning patterns.",
+    image: "https://www.dropbox.com/scl/fi/bbo59ayp0lc514lq4onjr/admin1.jpg?rlkey=8c9z2fccayf3eycrzjyvr4y53&st=3i85qunx&raw=1",
+    tags: ["UX Design", "Educational Technology", "System Design"],
+    gradient: "from-[#1E88E5]/80 to-[#26C6DA]/80",
+    projectId: "project-universet",
   },
   {
     title: "Trotter App Design",

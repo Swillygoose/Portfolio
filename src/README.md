@@ -2,7 +2,7 @@
 
 A modern, interactive portfolio website showcasing the work and expertise of Sandra Wilmann, a UX/UI Designer specializing in user-centered design solutions.
 
-🔗 **Live Site:** https://sandra-wilmann.figma.site
+🔗 **Live Site:** [Add your deployed URL here]
 
 ## ✨ Features
 

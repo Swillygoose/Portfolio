@@ -59,7 +59,7 @@ export function TrotterProject({
             transition={{ duration: 0.6, delay: 0.4 }}
             className="relative rounded-2xl overflow-hidden shadow-xl aspect-[16/9]"
           >
-            <TrotterImage4 />
+            <TrotterImage4/>
           </motion.div>
         </div>
       }

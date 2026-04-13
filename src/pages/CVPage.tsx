@@ -13,40 +13,40 @@ import portraitImage from "figma:asset/18c9b6906aade7ca2a821d9e11847684df67fc9a.
 
 const experience = [
   {
-    year: "2025 - nå",
+    year: "2025 - present",
     title: "UX Designer",
-    company: "CELL - Universitetet i Oslo",
-    location: "Oslo, Norge",
+    company: "CELL - University of Oslo",
+    location: "Oslo, Norway",
   },
   {
     year: "2023 - 2024",
-    title: "Sosiale Medier Assistent",
+    title: "Social Media Assistant",
     company: "Portal One",
-    location: "Norge",
+    location: "Norway",
   },
   {
-    year: "2019 - nå",
-    title: "Frilans",
-    company: "Eget Firma",
-    location: "Norge",
+    year: "2019 - present",
+    title: "Freelance",
+    company: "Own Company",
+    location: "Norway",
   },
 ];
 
 const education = [
   {
-    year: "2023 - nå",
+    year: "2023 - present",
     degree:
-      "Bachelor i Informatikk: Bruk, design og interaksjon",
-    school: "Universitetet i Oslo",
+      "Bachelor in Informatics: Use, design and interaction",
+    school: "University of Oslo",
   },
   {
     year: "2018 - 2020",
-    degree: "Master i Fine Arts Digital",
+    degree: "Master in Fine Arts Digital",
     school: "Camberwell College of Arts",
   },
   {
     year: "2015 - 2018",
-    degree: "Bachelor i Fine Arts",
+    degree: "Bachelor in Fine Arts",
     school: "Middlesex University",
   },
 ];

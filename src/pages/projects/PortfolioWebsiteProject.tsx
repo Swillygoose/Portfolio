@@ -6,7 +6,9 @@ interface PortfolioWebsiteProjectProps {
   onNavigate: (page: string) => void;
 }
 
-export function PortfolioWebsiteProject({ onNavigate }: PortfolioWebsiteProjectProps) {
+export function PortfolioWebsiteProject({
+  onNavigate,
+}: PortfolioWebsiteProjectProps) {
   return (
     <ProjectPage
       onNavigate={onNavigate}
@@ -58,7 +60,7 @@ export function PortfolioWebsiteProject({ onNavigate }: PortfolioWebsiteProjectP
         </div>
       }
       client="Personal Project"
-      duration="2 weeks"
+      duration="1 week"
       role="UX/UI Designer, Developer"
       tags={[
         "Web Design",
@@ -98,7 +100,8 @@ export function PortfolioWebsiteProject({ onNavigate }: PortfolioWebsiteProjectP
           additionalImage: {
             src: "https://www.dropbox.com/scl/fi/o96z6yei73wyn4u8tk6eh/port3.png?rlkey=18oor8xia82snjfoy0pd436ne&st=gc1m5o7d&raw=1",
             alt: "Figma design system and components",
-            caption: "Design system and component library created in Figma",
+            caption:
+              "Design system and component library created in Figma",
           },
         },
         {
@@ -121,7 +124,8 @@ export function PortfolioWebsiteProject({ onNavigate }: PortfolioWebsiteProjectP
               className="w-full h-full object-cover"
             />
           ),
-          caption: "Clean homepage design with featured projects and glassmorphism effects",
+          caption:
+            "Clean homepage design with featured projects and glassmorphism effects",
         },
         {
           component: (
@@ -131,7 +135,8 @@ export function PortfolioWebsiteProject({ onNavigate }: PortfolioWebsiteProjectP
               className="w-full h-full object-cover"
             />
           ),
-          caption: "Detailed project pages with custom color theming",
+          caption:
+            "Detailed project pages with custom color theming",
         },
         {
           component: (
@@ -141,7 +146,8 @@ export function PortfolioWebsiteProject({ onNavigate }: PortfolioWebsiteProjectP
               className="w-full h-full object-cover"
             />
           ),
-          caption: "Portfolio page with category filtering and project grid",
+          caption:
+            "Portfolio page with category filtering and project grid",
         },
       ]}
       outcomes={[

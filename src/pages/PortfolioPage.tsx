@@ -14,6 +14,15 @@ const allProjects = [
     projectId: "project-meshr",
   },
   {
+    title: "Universet - Learning Assessment Platform",
+    description: "Digital learning platform integrating Confidence-Based Marking (CBM) to help students reflect on their certainty and give instructors deeper insight.",
+    image: "https://www.dropbox.com/scl/fi/bbo59ayp0lc514lq4onjr/admin1.jpg?rlkey=8c9z2fccayf3eycrzjyvr4y53&st=3i85qunx&raw=1",
+    tags: ["UX Design", "Educational Technology", "System Design"],
+    gradient: "from-[#1E88E5]/80 to-[#26C6DA]/80",
+    category: ["web"],
+    projectId: "project-universet",
+  },
+  {
     title: "Portfolio Website",
     description: "A modern, responsive portfolio website with glassmorphism aesthetics, showcasing UX/UI projects with clean design and seamless navigation.",
     image: "https://www.dropbox.com/scl/fi/8slp86wwa6rvcbyph4a5w/port1.png?rlkey=p5yep5l0idomnngt0nogvpzo4&st=qby5nejn&raw=1",
